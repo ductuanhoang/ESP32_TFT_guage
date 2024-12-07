@@ -34,6 +34,8 @@
 #include "lvgl/lvgl.h"
 #endif
 #include "lvgl_helpers.h"
+
+#include "user_action.h"
 /***********************************************************************************************************************
  * Macro definitions
  ***********************************************************************************************************************/
@@ -60,7 +62,7 @@ static void app_init(void);
 static void lv_tick_task(void *arg);
 static void guiTask(void *pvParameter);
 static void create_demo_application(void);
-
+static void ui_action_task(void *pvParameter);
 /***********************************************************************************************************************
  * Exported global variables and functions (to be accessed by other files)
  ***********************************************************************************************************************/
@@ -220,6 +222,22 @@ static void guiTask(void *pvParameter)
 static void create_demo_application(void)
 {
     ui_init();
+    xTaskCreatePinnedToCore(ui_action_task, "ui_action", 4096 * 4, NULL, 0, NULL, 1);
+}
+
+static void ui_action_task(void *pvParameter)
+{
+    (void)pvParameter;
+    ESP_LOGI(TAG, "UI action task\n");
+    uint16_t speed = 0;
+    while (1)
+    {
+        ui_action_set_engine_speed(speed);
+        speed += 100;
+        if(speed > 2000)
+            speed = 0;
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
 }
 /***********************************************************************************************************************
  * End of file

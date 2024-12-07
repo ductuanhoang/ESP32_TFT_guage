@@ -13,17 +13,27 @@ void ui_Screen1_screen_init(void)
     ui_Label1 = lv_label_create(ui_Screen1);
     lv_obj_set_width(ui_Label1, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_Label1, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_Label1, -1);
-    lv_obj_set_y(ui_Label1, -5);
+    lv_obj_set_x(ui_Label1, 0);
+    lv_obj_set_y(ui_Label1, -26);
     lv_obj_set_align(ui_Label1, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label1, "Hello Team");
+    lv_label_set_text(ui_Label1, "Engine speed");
+    lv_obj_set_style_text_font(ui_Label1, &lv_font_montserrat_20, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_Arc1 = lv_arc_create(ui_Screen1);
-    lv_obj_set_width(ui_Arc1, 152);
-    lv_obj_set_height(ui_Arc1, 150);
+    lv_obj_set_width(ui_Arc1, 216);
+    lv_obj_set_height(ui_Arc1, 212);
     lv_obj_set_align(ui_Arc1, LV_ALIGN_CENTER);
     lv_arc_set_value(ui_Arc1, 50);
 
 
+    ui_Label2 = lv_label_create(ui_Screen1);
+    lv_obj_set_width(ui_Label2, 126);
+    lv_obj_set_height(ui_Label2, LV_SIZE_CONTENT);    /// 20
+    lv_obj_set_x(ui_Label2, 0);
+    lv_obj_set_y(ui_Label2, 46);
+    lv_obj_set_align(ui_Label2, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_Label2, "0 RPM");
+    lv_obj_set_style_text_align(ui_Label2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_Label2, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);
 
 }
