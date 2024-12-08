@@ -25,6 +25,11 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_align(ui_Arc1, LV_ALIGN_CENTER);
     lv_arc_set_value(ui_Arc1, 50);
 
+    lv_obj_set_style_arc_color(ui_Arc1, lv_color_hex(0x15CB1A), LV_PART_INDICATOR | LV_STATE_DEFAULT);
+    lv_obj_set_style_arc_opa(ui_Arc1, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+
+    lv_obj_set_style_bg_color(ui_Arc1, lv_color_hex(0x19C93E), LV_PART_KNOB | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_Arc1, 255, LV_PART_KNOB | LV_STATE_DEFAULT);
 
     ui_Label2 = lv_label_create(ui_Screen1);
     lv_obj_set_width(ui_Label2, 126);

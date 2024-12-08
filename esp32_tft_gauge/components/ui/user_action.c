@@ -32,7 +32,32 @@
  ***********************************************************************************************************************/
 void ui_action_set_engine_speed(uint16_t speed)
 {
-    // convert from 0-100 
+    // convert from 0-100
+    if (speed < 1000)
+    {
+        lv_obj_set_style_arc_color(ui_Arc1, lv_color_hex(0x15CB1A), LV_PART_INDICATOR | LV_STATE_DEFAULT);
+        lv_obj_set_style_arc_opa(ui_Arc1, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+
+        lv_obj_set_style_bg_color(ui_Arc1, lv_color_hex(0x19C93E), LV_PART_KNOB | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_opa(ui_Arc1, 255, LV_PART_KNOB | LV_STATE_DEFAULT);
+    }
+    else if (speed < 1500)
+    {
+        lv_obj_set_style_arc_color(ui_Arc1, lv_color_hex(0xF7B500), LV_PART_INDICATOR | LV_STATE_DEFAULT);
+        lv_obj_set_style_arc_opa(ui_Arc1, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+
+        lv_obj_set_style_bg_color(ui_Arc1, lv_color_hex(0xF7B500), LV_PART_KNOB | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_opa(ui_Arc1, 255, LV_PART_KNOB | LV_STATE_DEFAULT);
+    }
+    else
+    {
+        lv_obj_set_style_arc_color(ui_Arc1, lv_color_hex(0xF70000), LV_PART_INDICATOR | LV_STATE_DEFAULT);
+        lv_obj_set_style_arc_opa(ui_Arc1, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+
+        lv_obj_set_style_bg_color(ui_Arc1, lv_color_hex(0xF70000), LV_PART_KNOB | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_opa(ui_Arc1, 255, LV_PART_KNOB | LV_STATE_DEFAULT);
+    }
+
     uint8_t percent = 0;
     percent = (speed * 100) / MAX_SPEED;
     lv_arc_set_value(ui_Arc1, percent);
