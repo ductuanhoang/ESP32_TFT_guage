@@ -12,7 +12,16 @@
 extern "C"
 {
 #endif
-    void ui_action_set_engine_speed(uint16_t speed);
+    typedef enum
+    {
+        UI_ACTION_SET_ENGINE_SPEED,
+        UI_ACTION_SET_TOTAL_ENGINE_HOURS,
+        UI_ACTION_SET_OIL_PRESSURE,
+        UI_ACTION_SET_ENGINE_TEMPERATURE,
+        UI_ACTION_SET_GLOW_PLUG
+    } ui_action_t;
+
+    void ui_action_set_engine_speed(uint32_t speed, ui_action_t ui_type);
 
 #ifdef __cplusplus
 }

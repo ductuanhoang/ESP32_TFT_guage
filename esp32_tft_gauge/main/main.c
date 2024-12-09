@@ -232,7 +232,7 @@ static void ui_action_task(void *pvParameter)
     uint16_t speed = 0;
     while (1)
     {
-        ui_action_set_engine_speed(speed);
+        ui_action_set_engine_speed(speed, UI_ACTION_SET_ENGINE_SPEED);
         speed += 100;
         if(speed > 2000)
             speed = 0;
