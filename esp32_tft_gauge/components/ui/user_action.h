@@ -23,6 +23,7 @@ extern "C"
 
     void ui_action_set_engine_speed(uint32_t speed, ui_action_t ui_type);
 
+    void ui_action_set_label_text(char *text);
 #ifdef __cplusplus
 }
 #endif

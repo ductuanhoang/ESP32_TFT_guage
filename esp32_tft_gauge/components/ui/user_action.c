@@ -67,24 +67,28 @@ void ui_action_set_engine_speed(uint32_t value, ui_action_t ui_type)
     switch (ui_type)
     {
     case UI_ACTION_SET_ENGINE_SPEED:
+        ui_action_set_label_text("Engine Speed");
         percent = (value * 100) / MAX_SPEED;
         lv_arc_set_value(ui_Arc1, percent);
         snprintf(buf, 15, "%ld RPM", value);
         lv_label_set_text(ui_Label2, buf);
         break;
     case UI_ACTION_SET_TOTAL_ENGINE_HOURS:
+        ui_action_set_label_text("Total Engine Hours");
         percent = (value * 100) / MAX_TOTAL_ENG_HRS;
         lv_arc_set_value(ui_Arc1, percent);
         snprintf(buf, 15, "%ld Hr/bit", value);
         lv_label_set_text(ui_Label2, buf);
         break;
     case UI_ACTION_SET_OIL_PRESSURE:
+        ui_action_set_label_text("Oil Pressure");
         percent = (value * 100) / MAX_OIL_PRESSURE;
         lv_arc_set_value(ui_Arc1, percent);
         snprintf(buf, 15, "%ld kPa", value);
         lv_label_set_text(ui_Label2, buf);
         break;
     case UI_ACTION_SET_ENGINE_TEMPERATURE:
+        ui_action_set_label_text("Engine Temperature");
         percent = (value * 100) / MAX_ENGINE_TEMP;
         lv_arc_set_value(ui_Arc1, percent);
         snprintf(buf, 15, "%ld degC", value);
@@ -95,6 +99,10 @@ void ui_action_set_engine_speed(uint32_t value, ui_action_t ui_type)
     }
 }
 
+void ui_action_set_label_text(char *text)
+{
+    lv_label_set_text(ui_Label1, text);
+}
 /***********************************************************************************************************************
  * static functions
  ***********************************************************************************************************************/
